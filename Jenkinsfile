@@ -2,7 +2,7 @@ pipeline {
 
   agent {
     // Run command on Docker-VM, instead inside Jenkins container.
-    label 'app-vm'
+    label 'App-VM'
   }
 
   stages {
