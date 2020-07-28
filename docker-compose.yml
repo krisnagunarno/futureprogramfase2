@@ -11,6 +11,7 @@ services:
       - DBNAME=crud_laundry
     volumes:
       - ./:/app
+      - phpsession:/tmp
     working_dir: /app
   web:
     restart: always
