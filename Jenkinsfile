@@ -21,7 +21,7 @@ pipeline {
       steps {
         sh '''
           docker-compose down
-          docker-compose up --scale web=2 --scale php=2 --no-recreate
+          docker-compose up --scale web=2 --scale php=2 --no-recreate -d
         '''
       }
     }
