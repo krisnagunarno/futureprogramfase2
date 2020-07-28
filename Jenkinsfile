@@ -17,6 +17,23 @@ pipeline {
         '''
       }
     }
+    stage ('Execute docker-compose') {
+      steps {
+        sh '''
+          docker-compose down
+          docker-compose up --scale web=2 --scale php=2 --no-recreate
+        '''
+      }
+    }
+
+    stage ('Show Docker Info') {
+      steps {
+        sh '''
+          docker-compose ps
+          docker container ls
+        '''
+      }
+    }
   }
 
 }
