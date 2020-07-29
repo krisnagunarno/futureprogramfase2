@@ -20,6 +20,7 @@ pipeline {
     stage ('Execute docker-compose') {
       steps {
         sh '''
+          docker-compose stop
           docker-compose up --scale web=2 --scale php=2 --no-recreate -d
         '''
       }
