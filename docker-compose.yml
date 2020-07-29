@@ -17,7 +17,8 @@ services:
     logging:
       driver: "fluentd"
       options:
-        fluentd-address: 192.168.56.112:24224
+        fluentd-address: "tcp://192.168.56.112:24224"
+        tag: php
   web:
     restart: always
     image: customnginx
@@ -28,7 +29,8 @@ services:
     logging:
       driver: "fluentd"
       options:
-        fluentd-address: 192.168.56.112:24224
+        fluentd-address: "tcp://192.168.56.112:24224"
+        tag: web
   loadbalancer:
     image: nginx
     volumes:
@@ -38,6 +40,7 @@ services:
     logging:
       driver: "fluentd"
       options:
-        fluentd-address: 192.168.56.112:24224
+        fluentd-address: "tcp://192.168.56.112:24224"
+        tag: loadbalancer
 volumes:
   phpsession:
