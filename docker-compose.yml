@@ -42,5 +42,19 @@ services:
       options:
         fluentd-address: 192.168.56.112:24224
         tag: loadbalancer
+  cadvisor:
+    image: gcr.io/google-containers/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - 8080:8080
+    tmpfs:
+      - /tmp
+      - /run
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+
 volumes:
   phpsession:
