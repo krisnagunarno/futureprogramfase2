@@ -4,7 +4,7 @@ services:
   php:
     image: customphpalpine
     restart: always
-    build: .
+    build: ./php
     environment:
       - HOSTNAME=192.168.56.108:3306
       - USERNAME=futureprogram
@@ -22,6 +22,7 @@ services:
   web:
     restart: always
     image: customnginx
+    build: ./nginx
     volumes:
       - ./:/app
     ports:
